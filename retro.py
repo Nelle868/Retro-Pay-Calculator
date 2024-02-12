@@ -42,9 +42,10 @@ elif part_or_full == "no":
     # monthly:
     if paycycle == "monthly":
         days_owed = input("Enter the number of days owed: ")
-        hours_owed = int(days_owed) * 8
-        calculated_hourly_rate = (float(rate)*12)/2080
-        wages_owed = float(calculated_hourly_rate) * float(hours_owed)
+        # Updated formula #
+        days_of_month = input("Enter the number of days in the affected month: ")
+        daily_rate_mo = float(rate)/float(days_of_month)
+        wages_owed = daily_rate_mo * float(days_owed)
 
 ###########################################################
 # invalid response
@@ -54,4 +55,4 @@ else:
 
 ###########################################################
 # final output
-print(f"The retro wages owed to {ee_name} are: ${"%.2f" % wages_owed} Thank you.")
+print(f"The retro wages owed to {ee_name} are: ${"%.2f" % wages_owed}.\n Thank you.")
